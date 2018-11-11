@@ -20,7 +20,7 @@
 
             <TextView
                 android:id="@+id/lblInterval"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
@@ -30,12 +30,16 @@
             <view
                 android:id="@+id/sbInterval"
                 class="com.jonasjuffinger.timelapse.AdvancedSeekBar"
-                android:layout_width="0dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/tvIntervalValue"
                 android:layout_toRightOf="@+id/lblInterval"
+                android:thumb="@drawable/custom_thumb"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:progressDrawable="@drawable/seekbar_style"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -68,7 +72,7 @@
 
             <TextView
                 android:id="@+id/lblShots"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
@@ -80,9 +84,14 @@
                 class="com.jonasjuffinger.timelapse.AdvancedSeekBar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/tvShotsValue"
                 android:layout_toRightOf="@+id/lblShots"
+                android:thumb="@drawable/custom_thumb"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:progressDrawable="@drawable/seekbar_style"
                 android:gravity="center_vertical" />
 
             <TextView
