@@ -34,10 +34,11 @@ public class SettingsActivity extends BaseActivity
     private TextView tvDurationValue, tvDurationUnit;
     private TextView tvVideoTimeValue, tvVideoTimeUnit;
 
-    private int fps;
-    private Spinner spnFps;
+    private AdvancedSeekBar sbFps;
+    private TextView tvFpsValue;
 
     private CheckBox cbSilentShutter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,7 +53,6 @@ public class SettingsActivity extends BaseActivity
 
         settings = new Settings();
         settings.load(this);
-        fps = 24;
 
         bnStart = (Button) findViewById(R.id.bnStart);
         bnStart.setOnClickListener(bnStartOnClickListener);
@@ -70,7 +70,8 @@ public class SettingsActivity extends BaseActivity
         sbInterval = (AdvancedSeekBar) findViewById(R.id.sbInterval);
         tvShotsValue = (TextView) findViewById(R.id.tvShotsValue);
         sbShots = (AdvancedSeekBar) findViewById(R.id.sbShots);
-        spnFps = (Spinner) findViewById(R.id.spnFps);
+        tvFpsValue = (TextView) findViewById(R.id.tvFpsValue);
+        sbFps = (AdvancedSeekBar) findViewById(R.id.sbFps);
         cbSilentShutter = (CheckBox) findViewById(R.id.cbSilentShutter);
 
         sbInterval.setMax(83);
@@ -81,8 +82,9 @@ public class SettingsActivity extends BaseActivity
         sbShots.setOnSeekBarChangeListener(sbShotsOnSeekBarChangeListener);
         sbShots.setProgress(settings.rawShotCount);
 
-        spnFps.setSelection(settings.fps);
-        spnFps.setOnItemSelectedListener(spnFpsOnItemSelectedListener);
+        sbFps.setMax(6);
+        sbFps.setOnSeekBarChangeListener(sbFpsOnSeekBarChangeListener);
+        sbFps.setProgress(settings.fps);
 
         cbSilentShutter.setChecked(settings.silentShutter);
         cbSilentShutter.setOnCheckedChangeListener(cbSilentShutterOnCheckListener);
@@ -191,20 +193,19 @@ public class SettingsActivity extends BaseActivity
         public void onStartTrackingTouch(SeekBar seekBar) {}
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {}
-    };
-
-    AdapterView.OnItemSelectedListener spnFpsOnItemSelectedListener
-            = new AdapterView.OnItemSelectedListener() {
+    },sbFpsOnSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        public void onProgressChanged(SeekBar seekBar, int i, boolean fromUser) {
             String sfps = getResources().getStringArray(R.array.fps)[i];
-            fps = Integer.parseInt(sfps);
             settings.fps = i;
+            tvFpsValue.setText(sfps);
             updateTimes();
         }
 
         @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {}
+        public void onStartTrackingTouch(SeekBar seekBar) {}
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {}
     };
 
     CheckBox.OnCheckedChangeListener cbSilentShutterOnCheckListener = new CheckBox.OnCheckedChangeListener() {
@@ -225,6 +226,7 @@ public class SettingsActivity extends BaseActivity
         }
 
         int duration = settings.interval * settings.shotCount;
+        int fps = Integer.parseInt(getResources().getStringArray(R.array.fps)[settings.fps]);
         int videoTime = settings.shotCount / fps;
 
         if(duration < 60) {
@@ -249,24 +251,28 @@ public class SettingsActivity extends BaseActivity
     protected boolean onUpperDialChanged(int value) {
         sbInterval.dialChanged(value);
         sbShots.dialChanged(value);
+        sbFps.dialChanged(value);
         return true;
     }
 
     protected boolean onLowerDialChanged(int value) {
         sbInterval.dialChanged(value);
         sbShots.dialChanged(value);
+        sbFps.dialChanged(value);
         return true;
     }
 
     protected boolean onThirdDialChanged(int value) {
         sbInterval.dialChanged(value);
         sbShots.dialChanged(value);
+        sbFps.dialChanged(value);
         return true;
     }
 
     protected boolean onKuruDialChanged(int value) {
         sbInterval.dialChanged(value);
         sbShots.dialChanged(value);
+        sbFps.dialChanged(value);
         return true;
     }
 

@@ -12,6 +12,16 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="TimeLapse Settings" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,22 +42,23 @@
                 class="com.jonasjuffinger.timelapse.AdvancedSeekBar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/tvIntervalValue"
                 android:layout_toRightOf="@+id/lblInterval"
-                android:thumb="@drawable/custom_thumb"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:gravity="center_vertical"
                 android:maxHeight="5dp"
                 android:minHeight="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:progressDrawable="@drawable/seekbar_style"
-                android:gravity="center_vertical" />
+                android:thumb="@drawable/custom_thumb" />
 
             <TextView
                 android:id="@+id/tvIntervalUnit"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
                 android:gravity="center_vertical"
                 android:text="s"
                 android:textSize="20sp" />
@@ -67,7 +78,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -84,25 +95,79 @@
                 class="com.jonasjuffinger.timelapse.AdvancedSeekBar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/tvShotsValue"
                 android:layout_toRightOf="@+id/lblShots"
-                android:thumb="@drawable/custom_thumb"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:gravity="center_vertical"
                 android:maxHeight="5dp"
                 android:minHeight="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:progressDrawable="@drawable/seekbar_style"
-                android:gravity="center_vertical" />
+                android:thumb="@drawable/custom_thumb" />
 
             <TextView
                 android:id="@+id/tvShotsValue"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
                 android:layout_marginRight="30dp"
                 android:gravity="right|center_vertical"
                 android:text="1"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblFps"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="Frames"
+                android:textSize="20sp" />
+
+            <view
+                android:id="@+id/sbFps"
+                class="com.jonasjuffinger.timelapse.AdvancedSeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tvFpsValue"
+                android:layout_toRightOf="@+id/lblFps"
+                android:gravity="center_vertical"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:thumb="@drawable/custom_thumb" />
+
+            <TextView
+                android:id="@+id/tvFpsUnit"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:text="fps"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvFpsValue"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/tvFpsUnit"
+                android:gravity="right|center_vertical"
+                android:text="24"
                 android:textSize="20sp" />
         </RelativeLayout>
 
@@ -152,40 +217,19 @@
                 android:text="s"
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/lblFps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/spnFps"
-                android:text="fps"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spnFps"
-                style="@android:style/Widget.Spinner"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:entries="@array/fps" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <CheckBox
                 android:id="@+id/cbSilentShutter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="224dp"
+                android:layout_marginTop="0dp"
                 android:checked="true"
                 android:text="Silent Shutter" />
+
         </RelativeLayout>
+
     </LinearLayout>
 
     <RelativeLayout
