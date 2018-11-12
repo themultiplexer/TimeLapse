@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:state_focused="false">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <gradient android:angle="270" android:endColor="@color/gray" android:startColor="@color/silver" />
+                    <size android:height="30dp" android:width="30dp" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <stroke android:color="@android:color/transparent" android:width="15dp"/>
+                    <solid android:color="@color/black"/>
+                    <size android:height="10dp" android:width="10dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_checked="true" android:state_focused="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <gradient android:angle="270" android:endColor="@color/maroon" android:startColor="@color/maroon" />
+                    <size android:height="30dp" android:width="30dp" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="oval">
+                    <stroke android:color="@android:color/transparent" android:width="15dp"/>
+                    <solid android:color="@color/black"/>
+                    <size android:height="10dp" android:width="10dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_checked="false" android:state_focused="true">
+        <shape android:shape="oval">
+            <gradient android:angle="270" android:endColor="@color/maroon" android:startColor="@color/maroon" />
+            <size android:height="30dp" android:width="30dp" />
+        </shape>
+    </item>
+    <item android:state_checked="false" android:state_focused="false">
+        <shape android:shape="oval">
+            <gradient android:angle="270" android:endColor="@color/gray" android:startColor="@color/silver" />
+            <size android:height="30dp" android:width="30dp" />
+        </shape>
+    </item>
+</selector>
