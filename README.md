@@ -1,3 +1,7 @@
+# In this fork
+
+![Modified UI](/doc/screen.png?raw=true "Modified UI")
+
 # TimeLapse
 A time lapse app for Sony Alpha cameras using the [OpenMemories: Framework](https://github.com/ma1co/OpenMemories-Framework).
 
